@@ -1,3 +1,4 @@
+// app/layout.jsx
 import { Outfit } from "next/font/google";
 import { Toaster } from "react-hot-toast";
 import StoreProvider from "@/app/StoreProvider";
@@ -13,15 +14,15 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <ClerkProvider>
-      <html lang="en">
-        <body className={`${outfit.className} antialiased`}>
+    <html lang="en" className="mdl-js" suppressHydrationWarning>
+      <body className={`${outfit.className} antialiased`}>
+        <ClerkProvider>
           <StoreProvider>
             <Toaster />
             {children}
           </StoreProvider>
-        </body>
-      </html>
-    </ClerkProvider>
+        </ClerkProvider>
+      </body>
+    </html>
   );
 }
